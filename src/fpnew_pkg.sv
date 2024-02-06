@@ -215,6 +215,14 @@ package fpnew_pkg;
     IntFmtMask:    4'b0011
   };
 
+  localparam fpu_features_t RV64F = '{
+    Width:         64,
+    EnableVectors: 1'b0,
+    EnableNanBox:  1'b1,
+    FpFmtMask:     5'b01000,
+    IntFmtMask:    4'b0000
+  };
+
   localparam fpu_features_t RV32D = '{
     Width:         64,
     EnableVectors: 1'b1,
@@ -269,6 +277,15 @@ package fpnew_pkg;
                   '{default: MERGED},   // DIVSQRT
                   '{default: PARALLEL}, // NONCOMP
                   '{default: MERGED}},  // CONV
+    PipeConfig: BEFORE
+  };
+
+  localparam fpu_implementation_t ALU_MUL_ONLY = '{
+    PipeRegs:   '{default: 0},
+    UnitTypes:  '{'{default: PARALLEL}, // ADDMUL
+                  '{default: DISABLED},   // DIVSQRT
+                  '{default: DISABLED}, // NONCOMP
+                  '{default: DISABLED}},  // CONV
     PipeConfig: BEFORE
   };
 
