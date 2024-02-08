@@ -280,7 +280,7 @@ package fpnew_pkg;
     PipeConfig: BEFORE
   };
 
-  localparam fpu_implementation_t ALU_MUL_ONLY = '{
+  localparam fpu_implementation_t ADD_MUL_ONLY = '{
     PipeRegs:   '{default: 0},
     UnitTypes:  '{'{default: PARALLEL}, // ADDMUL
                   '{default: DISABLED},   // DIVSQRT
